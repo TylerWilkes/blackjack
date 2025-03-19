@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+  </head>
+  <body>
+    <div>
+      <h2 id="money">Money: $1000</h2>
+
+      <h2 id="bet">Bet: $50</h2>
+      <h3 class="bet" id="upBet">+1</h3>
+      <h3 class="bet" id="upBet5">+5</h3>
+      <h3 class="bet" id="double">x2</h3>
+      <h3 class="bet" id="maxBet" style="color: rgb(117, 24, 10);">Max Bet</h3>
+      <br><br>
+      <h3 class="bet" id="downBet">-1</h3>
+      <h3 class="bet" id="downBet5">-5</h3>
+      <h3 class="bet" id="half">/2</h3>
+      <h2 class="bet" id="play" style="color: rgb(95, 77, 23);">Play</h2>
+    </div>
+
+    <br><br>
+
+    <div id="dHand">
+      <h2 id="dTitle"></h2>
+      <h2>Dealer's Hand</h2>
+    </div>
+
+    <div id="pHand">
+      <h2>Your Hand</h2>
+    </div>
+
+    <br>
+
+    <div class="clickable" id="hit">
+      <h1 class="centered">Hit</h1>
+    </div>
+    <div class="clickable" id="stand">
+      <h1 class="centered">Stand</h1>
+    </div>
+
+    <script src="./testing.js"></script>
+  </body>
+</html>

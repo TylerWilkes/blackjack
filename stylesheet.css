@@ -1,0 +1,46 @@
+body{
+  background: darkgreen;
+}
+
+h2{
+  margin: 4px;
+}
+
+.card{
+  width: 8%;
+  height: 8%;
+  margin: 2px;
+}
+
+.clickable{
+  width: 160px;
+  height: 100px;
+  background: lightgray;
+  border: 4px outset grey;
+  border-radius: 20px;
+  float: left;
+}
+
+.centered{
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.bet{
+  width: 40px;
+  height: 32px;
+  background: lightgray;
+  border: 2px outset grey;
+  border-radius: 4px;
+  float: left;
+  text-align: center;
+  margin: 0px 2px;
+}
+
+#play{
+  width: 80px;
+}
+
+#maxBet{
+  width: 80px;
+}
