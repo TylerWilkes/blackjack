@@ -20,7 +20,7 @@ async function addDealerCard2() {
   dealerCard2.setAttribute('class', 'card');
   dealerCard2.addEventListener('load', async function(){loaded = true;});
   document.getElementById('dHand').appendChild(dealerCard2);
-  await delay(100);
+  await delay(260);
 }
 
 async function genCard(rank, suit, pd) {
@@ -39,7 +39,7 @@ async function genCard(rank, suit, pd) {
     pHand.push([card, rank, suit]);
   }
   console.log(getTotal(0).toString() + " " + getTotal(1).toString());
-  await delay(100);
+  await delay(260);
 }
 
 function genDeck() {
@@ -113,14 +113,17 @@ async function stand() {
   if (getTotal(0) > 21) {
     alert("The dealer busted, you won! (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
     money += bet * 2;
+    document.getElementById("money").innerHTML = "Money: $" + money.toString();
   }
   else if (getTotal(0) < getTotal(1)) {
     alert("You won (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
     money += bet * 2;
+    document.getElementById("money").innerHTML = "Money: $" + money.toString();
   }
   else if (getTotal(0) == getTotal(1)) {
     alert("You tied (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")! You won $" + bet.toString());
     money += bet;
+    document.getElementById("money").innerHTML = "Money: $" + money.toString();
   }
   else {
     alert("You lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
@@ -241,25 +244,25 @@ function maxBet() {
 
 async function changeBets() {
   document.getElementById("dTitle").innerHTML = "Change Bets: 10s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 9s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 8s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 7s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 6s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 5s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 4s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 3s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 2s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "Change Bets: 1s";
-  await delay(1000);
+  await delay(2600);
   document.getElementById("dTitle").innerHTML = "";
   return true;
 }
@@ -304,12 +307,14 @@ async function start() {
     await addDealerCard2();
     alert("You and the dealer hit a blackjack, you tied (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")! You won $" + bet.toString());
     money += bet;
+    document.getElementById("money").innerHTML = "Money: $" + money.toString();
     start();
   }
   else if (getTotal(1) == 21) {
     await addDealerCard2();
     alert("You hit a blackjack, you won (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
     money += bet * 2;
+    document.getElementById("money").innerHTML = "Money: $" + money.toString();
     start();
   }
   else if (getTotal(0) == 21) {
