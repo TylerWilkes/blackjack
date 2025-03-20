@@ -100,11 +100,6 @@ async function hit() {
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
-    if (bet > money) {
-      bet = money;
-      document.getElementById("money").innerHTML = "Money: $" + money.toString();
-      document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
-    }
     start();
   }
 }
@@ -136,11 +131,6 @@ async function stand() {
       alert("You went bankrupt, money reset")
       money = 1000;
       bet = 50;
-      document.getElementById("money").innerHTML = "Money: $" + money.toString();
-      document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
-    }
-    if (bet > money) {
-      bet = money;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
@@ -253,16 +243,8 @@ function maxBet() {
 }
 
 async function changeBets() {
-  document.getElementById("dTitle").innerHTML = "Change Bets: 10s";
-  await delay(1000);
-  document.getElementById("dTitle").innerHTML = "Change Bets: 9s";
-  await delay(1000);
-  document.getElementById("dTitle").innerHTML = "Change Bets: 8s";
-  await delay(1000);
-  document.getElementById("dTitle").innerHTML = "Change Bets: 7s";
-  await delay(1000);
-  document.getElementById("dTitle").innerHTML = "Change Bets: 6s";
-  await delay(1000);
+  document.getElementById('hit').removeEventListener('click', hit);
+  document.getElementById('stand').removeEventListener('click', stand);
   document.getElementById("dTitle").innerHTML = "Change Bets: 5s";
   await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 4s";
@@ -337,11 +319,6 @@ async function start() {
       alert("You went bankrupt, money reset")
       money = 1000;
       bet = 50;
-      document.getElementById("money").innerHTML = "Money: $" + money.toString();
-      document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
-    }
-    if (bet > money) {
-      bet = money;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
