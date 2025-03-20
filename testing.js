@@ -244,25 +244,25 @@ function maxBet() {
 
 async function changeBets() {
   document.getElementById("dTitle").innerHTML = "Change Bets: 10s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 9s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 8s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 7s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 6s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 5s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 4s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 3s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 2s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 1s";
-  await delay(2600);
+  await delay(1000);
   document.getElementById("dTitle").innerHTML = "";
   return true;
 }
@@ -272,6 +272,9 @@ async function start() {
   cards = document.getElementsByClassName('card');
   if (cards.length != 0) {
     await changeBets();
+  }
+  else {
+    document.getElementById('play').removeEventListener('click', start);
   }
   while (cards.length > 0) {
     cards = document.getElementsByClassName('card');
