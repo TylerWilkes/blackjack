@@ -23,6 +23,14 @@ async function addDealerCard2() {
   await delay(260);
 }
 
+async function message(msg) {
+  document.getElementById('hit').removeEventListener('click', hit);
+  document.getElementById('stand').removeEventListener('click', stand);
+  document.getElementById("dTitle").innerHTML = msg;
+  await delay(3000);
+  document.getElementById("dTitle").innerHTML = "";
+}
+
 async function genCard(rank, suit, pd) {
   var card = document.createElement('img');
   var image = './playingCards/' + rank + '_of_' + suit;
@@ -92,9 +100,9 @@ async function hit() {
   await genCard(temp[0], temp[1], 1);
   if (getTotal(1) > 21) {
     await addDealerCard2();
-    alert("You busted and lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
+    await message("You busted and lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
     if (money < 1) {
-      alert("You went bankrupt, money reset")
+      await message("You went bankrupt, money reset");
       money = 1000;
       bet = 50;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
@@ -111,24 +119,24 @@ async function stand() {
     await genCard(temp[0], temp[1], 0);
   }
   if (getTotal(0) > 21) {
-    alert("The dealer busted, you won! (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
+    await message("The dealer busted, you won! (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
     money += bet * 2;
     document.getElementById("money").innerHTML = "Money: $" + money.toString();
   }
   else if (getTotal(0) < getTotal(1)) {
-    alert("You won (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
+    await message("You won (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
     money += bet * 2;
     document.getElementById("money").innerHTML = "Money: $" + money.toString();
   }
   else if (getTotal(0) == getTotal(1)) {
-    alert("You tied (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")! You won $" + bet.toString());
+    await message("You tied (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")! You won $" + bet.toString());
     money += bet;
     document.getElementById("money").innerHTML = "Money: $" + money.toString();
   }
   else {
-    alert("You lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
+    await message("You lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
     if (money < 1) {
-      alert("You went bankrupt, money reset")
+      await message("You went bankrupt, money reset");
       money = 1000;
       bet = 50;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
@@ -243,8 +251,6 @@ function maxBet() {
 }
 
 async function changeBets() {
-  document.getElementById('hit').removeEventListener('click', hit);
-  document.getElementById('stand').removeEventListener('click', stand);
   document.getElementById("dTitle").innerHTML = "Change Bets: 5s";
   await delay(1000);
   document.getElementById("dTitle").innerHTML = "Change Bets: 4s";
@@ -300,23 +306,23 @@ async function start() {
 
   if (getTotal(0) == 21 && getTotal(1) == 21) {
     await addDealerCard2();
-    alert("You and the dealer hit a blackjack, you tied (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")! You won $" + bet.toString());
+    await message("You and the dealer hit a blackjack, you tied (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")! You won $" + bet.toString());
     money += bet;
     document.getElementById("money").innerHTML = "Money: $" + money.toString();
     start();
   }
   else if (getTotal(1) == 21) {
     await addDealerCard2();
-    alert("You hit a blackjack, you won (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
+    await message("You hit a blackjack, you won (" + getTotal(1).toString() + " vs " + getTotal(0).toString() + ")! You won $" + (bet * 2).toString());
     money += bet * 2;
     document.getElementById("money").innerHTML = "Money: $" + money.toString();
     start();
   }
   else if (getTotal(0) == 21) {
     await addDealerCard2();
-    alert("The dealer hit a blackjack, you lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
+    await message("The dealer hit a blackjack, you lost (" + getTotal(0).toString() + " vs " + getTotal(1).toString() + ")");
     if (money < 1) {
-      alert("You went bankrupt, money reset")
+      await message("You went bankrupt, money reset");
       money = 1000;
       bet = 50;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
