@@ -102,6 +102,8 @@ async function hit() {
     }
     else if (bet > money) {
       bet = money;
+      document.getElementById("money").innerHTML = "Money: $" + money.toString();
+      document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
     start();
   }
@@ -139,6 +141,8 @@ async function stand() {
     }
     else if (bet > money) {
       bet = money;
+      document.getElementById("money").innerHTML = "Money: $" + money.toString();
+      document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
   }
   start();
@@ -338,6 +342,8 @@ async function start() {
     }
     else if (bet > money) {
       bet = money;
+      document.getElementById("money").innerHTML = "Money: $" + money.toString();
+      document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
     start();
   }
