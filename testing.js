@@ -100,7 +100,7 @@ async function hit() {
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
-    else if (bet > money) {
+    if (bet > money) {
       bet = money;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
@@ -139,7 +139,7 @@ async function stand() {
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
-    else if (bet > money) {
+    if (bet > money) {
       bet = money;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
@@ -340,7 +340,7 @@ async function start() {
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
-    else if (bet > money) {
+    if (bet > money) {
       bet = money;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
