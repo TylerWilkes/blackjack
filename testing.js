@@ -100,6 +100,9 @@ async function hit() {
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
     }
+    else if (bet > money) {
+      bet = money;
+    }
     start();
   }
 }
@@ -133,6 +136,9 @@ async function stand() {
       bet = 50;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
+    }
+    else if (bet > money) {
+      bet = money;
     }
   }
   start();
@@ -329,6 +335,9 @@ async function start() {
       bet = 50;
       document.getElementById("money").innerHTML = "Money: $" + money.toString();
       document.getElementById("bet").innerHTML = "Bet: $" + bet.toString();
+    }
+    else if (bet > money) {
+      bet = money;
     }
     start();
   }
