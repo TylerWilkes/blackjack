@@ -12,18 +12,30 @@ h2{
   margin: 2px;
 }
 
+@media only screen and (max-width: 600px) {
+  .card{
+    width: 20%;
+    height: 20%;
+    margin: 2px;
+  }
+}
+
 .clickable{
-  width: 160px;
-  height: 100px;
+  width: 116px;
+  height: 60px;
+  text-align: center;
+  padding: 0px 0px;
   background: lightgray;
   border: 4px outset grey;
   border-radius: 20px;
   float: left;
+  margin: 0px 2px
 }
 
 .centered{
   text-align: center;
   padding: 10px 0px;
+  margin: 0px;
 }
 
 .bet{
